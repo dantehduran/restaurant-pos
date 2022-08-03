@@ -10,7 +10,19 @@ module.exports = {
 		`app.{js,ts,vue}`,
 	],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				sans: ['Barlow', 'sans-serif'],
+			},
+			colors: {
+				primary: '#EB966A',
+			},
+			boxShadow: {
+				primary: '0px 8px 24px rgba(234,124,105,0.32)',
+				'inverse-top': '4px 4px 0 #1f2937',
+				'inverse-bottom': '4px -4px 0 #1f2937',
+			},
+		},
 	},
 	plugins: [],
 };
