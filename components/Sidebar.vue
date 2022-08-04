@@ -8,7 +8,7 @@
 				v-for="menu in Menus"
 				:class="
 					activeMenu === menu.name
-						? 'bg-gray-800 rounded-l-xl relative before:shadow-inverse-top before:absolute before:w-4 before:h-8 before:-top-8 before:rounded-br-xl before:right-0 after:shadow-inverse-bottom after:absolute after:w-4 after:h-8 after:-bottom-8 after:rounded-tr-xl after:right-0'
+						? 'bg-gray-800 rounded-l-xl relative before:shadow-inverse-top before:absolute before:w-4 before:h-8 before:-top-8 before:rounded-br-xl before:right-0 after:shadow-inverse-bottom after:absolute after:w-4 after:h-8 after:-bottom-8 after:rounded-tr-xl after:right-0 '
 						: ''
 				"
 			>
