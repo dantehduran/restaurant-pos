@@ -32,7 +32,6 @@ const Menus = [
 	{ name: 'dashboard', icon: 'cil:home' },
 	{ name: 'discounts', icon: 'tabler:discount-2' },
 	{ name: 'graph', icon: 'ant-design:pie-chart-outlined' },
-	{ name: 'messages', icon: 'fe:mail' },
 	{ name: 'settings', icon: 'ep:setting' },
 ];
 const activeMenu = ref('graph');
