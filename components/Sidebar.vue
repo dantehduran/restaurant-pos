@@ -7,16 +7,16 @@
 			<div
 				v-for="menu in Menus"
 				:class="
-					activeMenu === menu.name
+					route.path === menu.path
 						? 'bg-gray-800 rounded-l-xl relative before:shadow-inverse-top before:absolute before:w-4 before:h-8 before:-top-8 before:rounded-br-xl before:right-0 after:shadow-inverse-bottom after:absolute after:w-4 after:h-8 after:-bottom-8 after:rounded-tr-xl after:right-0 '
 						: ''
 				"
 			>
 				<button
 					class="p-4 my-4 mr-4 ml-3 rounded-xl"
-					@click="activeMenu = menu.name"
+					@click="navigateTo(menu.path)"
 					:class="
-						activeMenu === menu.name
+						route.path === menu.path
 							? 'text-white shadow-primary bg-primary'
 							: 'text-primary'
 					"
@@ -29,10 +29,11 @@
 </template>
 <script setup lang="ts">
 const Menus = [
-	{ name: 'dashboard', icon: 'cil:home' },
-	{ name: 'discounts', icon: 'tabler:discount-2' },
-	{ name: 'graph', icon: 'ant-design:pie-chart-outlined' },
-	{ name: 'settings', icon: 'ep:setting' },
+	{ name: 'dashboard', icon: 'cil:home', path: '/' },
+	{ name: 'discounts', icon: 'tabler:discount-2', path: '/discounts' },
+	{ name: 'graph', icon: 'ant-design:pie-chart-outlined', path: '/graph' },
+	{ name: 'settings', icon: 'ep:setting', path: '/settings' },
 ];
-const activeMenu = ref('graph');
+const route = useRoute();
+// const activeMenu = ref('graph');
 </script>
