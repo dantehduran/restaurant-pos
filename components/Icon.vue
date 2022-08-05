@@ -5,7 +5,7 @@
 import { Icon as Iconify } from '@iconify/vue';
 defineProps<{
 	icon: string;
-	class: string;
+	class?: string;
 	w: string | number;
 	h: string | number;
 }>();

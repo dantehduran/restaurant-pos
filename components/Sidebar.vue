@@ -29,11 +29,10 @@
 </template>
 <script setup lang="ts">
 const Menus = [
-	{ name: 'dashboard', icon: 'cil:home', path: '/' },
+	{ name: 'home', icon: 'cil:home', path: '/' },
 	{ name: 'discounts', icon: 'tabler:discount-2', path: '/discounts' },
-	{ name: 'graph', icon: 'ant-design:pie-chart-outlined', path: '/graph' },
+	{ name: 'graph', icon: 'ant-design:pie-chart-outlined', path: '/dashboard' },
 	{ name: 'settings', icon: 'ep:setting', path: '/settings' },
 ];
 const route = useRoute();
-// const activeMenu = ref('graph');
 </script>
