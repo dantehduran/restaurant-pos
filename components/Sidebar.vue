@@ -1,5 +1,7 @@
 <template>
-	<div class="flex flex-col gap-y-4 items-center py-4 w-24 bg-gray-900">
+	<div
+		class="flex flex-col gap-y-4 items-center py-4 w-24 bg-gray-900 h-screen sticky top-0"
+	>
 		<button class="p-2 bg-opacity-20 rounded-xl bg-primary">
 			<Icon class="text-primary" icon="bxs:store-alt" h="40" w="40" />
 		</button>
