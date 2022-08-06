@@ -5,7 +5,7 @@
 		<button class="p-2 bg-opacity-20 rounded-xl bg-primary">
 			<Icon class="text-primary" icon="bxs:store-alt" h="40" w="40" />
 		</button>
-		<div class="flex flex-col gap-y-2 items-end self-end">
+		<div class="flex flex-col gap-y-2 items-end self-end flex-1">
 			<div
 				v-for="menu in Menus"
 				:class="
@@ -27,6 +27,10 @@
 				</button>
 			</div>
 		</div>
+
+		<button class="p-4 my-4 mr-4 ml-3 rounded-lg self-end">
+			<Icon icon="humbleicons:logout" h="24" w="24" class="text-primary" />
+		</button>
 	</div>
 </template>
 <script setup lang="ts">
