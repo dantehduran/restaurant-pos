@@ -10,7 +10,7 @@
 					class="flex py-6 px-8 gap-x-2 first:rounded-t-lg last:rounded-b-lg relative"
 					:class="
 						item.title === active
-							? 'bg-primary/20 text-primary after:w-1 after:h-10 after:bg-primary after:absolute after:top-6 after:right-0'
+							? 'bg-primary/20 text-primary after:w-1 after:h-10 after:bg-primary after:absolute after:rounded-full after:top-6 after:right-0'
 							: 'text-white'
 					"
 					@click="active = item.title"
