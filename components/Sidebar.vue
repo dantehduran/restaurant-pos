@@ -9,7 +9,7 @@
 			<div
 				v-for="menu in Menus"
 				:class="
-					route.path === menu.path
+					String(route.name).includes(menu.name)
 						? 'bg-gray-800 rounded-l-xl relative before:shadow-inverse-top before:absolute before:w-4 before:h-8 before:-top-8 before:rounded-br-xl before:right-0 after:shadow-inverse-bottom after:absolute after:w-4 after:h-8 after:-bottom-8 after:rounded-tr-xl after:right-0 '
 						: ''
 				"
@@ -18,7 +18,7 @@
 					class="p-4 my-4 mr-4 ml-3 rounded-xl"
 					@click="navigateTo(menu.path)"
 					:class="
-						route.path === menu.path
+						String(route.name).includes(menu.name)
 							? 'text-white shadow-primary bg-primary'
 							: 'text-primary'
 					"
@@ -35,9 +35,13 @@
 </template>
 <script setup lang="ts">
 const Menus = [
-	{ name: 'home', icon: 'cil:home', path: '/' },
+	{ name: 'index', icon: 'cil:home', path: '/' },
 	{ name: 'discounts', icon: 'tabler:discount-2', path: '/discounts' },
-	{ name: 'graph', icon: 'ant-design:pie-chart-outlined', path: '/dashboard' },
+	{
+		name: 'dashboard',
+		icon: 'ant-design:pie-chart-outlined',
+		path: '/dashboard',
+	},
 	{ name: 'settings', icon: 'ep:setting', path: '/settings' },
 ];
 const route = useRoute();
