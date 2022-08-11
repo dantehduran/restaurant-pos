@@ -4,17 +4,24 @@
 			<h2 class="text-xl font-semibold leading-loose text-white">
 				Product Management
 			</h2>
-			<button
-				class="flex py-3 px-4 rounded-lg border border-gray-700 gap-x-2.5"
-			>
-				<Icon
-					icon="fluent:options-20-regular"
-					h="20"
-					w="20"
-					class="text-white"
-				/>
-				<span class="text-sm text-white">Manage Categories</span>
-			</button>
+			<div class="flex gap-x-4">
+				<button
+					class="flex py-3 px-4 rounded-lg border border-gray-700 gap-x-2.5"
+				>
+					<Icon
+						icon="fluent:options-20-regular"
+						h="20"
+						w="20"
+						class="text-white"
+					/>
+					<span class="text-sm text-white">Manage Categories</span>
+				</button>
+				<button
+					class="flex items-center justify-center py-3 px-4 rounded-lg bg-primary shadow-primary text-white text-sm"
+				>
+					New Dish
+				</button>
+			</div>
 		</div>
 		<div class="flex gap-x-6 items-center border-b border-gray-700">
 			<button
