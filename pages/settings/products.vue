@@ -30,15 +30,12 @@
 				{{ category }}
 			</button>
 		</div>
-		<div class="grid grid-cols-4 gap-2">
+		<div class="grid grid-cols-3 md:grid-cols-4 gap-2">
 			<AddNew />
-			<AddNew />
-			<AddNew />
-			<AddNew />
-			<AddNew />
-			<AddNew />
-			<AddNew />
-			<AddNew />
+			<DishCard />
+			<DishCard />
+			<DishCard />
+			<DishCard />
 		</div>
 	</div>
 </template>

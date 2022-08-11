@@ -1,7 +1,7 @@
 <template>
-	<div class="flex w-full min-h-full font-sans bg-gray-800">
+	<div class="flex min-w-full min-h-full font-sans bg-gray-800">
 		<Sidebar />
-		<main class="flex-1">
+		<main class="flex-1 bg-gray-800">
 			<div class="flex flex-col gap-4 p-4 flex-1">
 				<header>
 					<h1 class="text-3xl font-semibold leading-loose text-white">
