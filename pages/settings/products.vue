@@ -17,7 +17,8 @@
 					<span class="text-sm text-white">Manage Categories</span>
 				</button>
 				<button
-					class="flex items-center justify-center py-3 px-4 rounded-lg bg-primary shadow-primary text-white text-sm"
+					@click="backdropStatus = true"
+					class="flex w-40 items-center justify-center py-3 px-4 rounded-lg bg-primary shadow-primary text-white text-sm"
 				>
 					New Dish
 				</button>
@@ -37,17 +38,29 @@
 				{{ category }}
 			</button>
 		</div>
-		<div class="grid grid-cols-3 md:grid-cols-4 gap-2">
+		<div
+			class="grid grid-cols-3 md:grid-cols-4 gap-2 max-h-[376px] overflow-auto"
+		>
 			<AddNew />
 			<DishCard />
 			<DishCard />
 			<DishCard />
 			<DishCard />
 		</div>
+		<Backdrop
+			:active="backdropStatus"
+			:change-backdrop="() => (backdropStatus = false)"
+			@wheel.prevent
+			@touchmove.prevent
+			@scroll.prevent
+		>
+			<div class="w-1/4 bg-gray-900 min-h-screen">oyoyoy</div>
+		</Backdrop>
 	</div>
 </template>
 <script setup lang="ts">
 const active = ref('hot dishes');
+const backdropStatus = ref(false);
 const categories = [
 	'hot dishes',
 	'cold dishes',
