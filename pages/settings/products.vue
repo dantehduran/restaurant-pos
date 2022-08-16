@@ -48,13 +48,12 @@
 			<DishCard />
 		</div>
 		<Backdrop
-			:active="backdropStatus"
-			:change-backdrop="() => (backdropStatus = false)"
-			@wheel.prevent
-			@touchmove.prevent
-			@scroll.prevent
+			:active.sync="backdropStatus"
+			@show="() => (backdropStatus = false)"
 		>
-			<div class="w-1/4 bg-gray-900 min-h-screen">oyoyoy</div>
+			<div class="absolute top-0 right-0">
+				<div class="w-96 bg-gray-900 min-h-screen">hello</div>
+			</div>
 		</Backdrop>
 	</div>
 </template>

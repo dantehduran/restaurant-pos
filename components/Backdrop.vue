@@ -1,16 +1,16 @@
 <template>
-	<div class="w-full min-h-full absolute top-0 left-0 flex" v-if="active">
+	<div class="fixed inset-0 overflow-hidden z-20" v-if="active">
 		<div
-			class="backdrop-blur-sm bg-gray-600/30 flex-1 min-h-full"
-			@click="changeBackdrop"
+			class="backdrop-blur-sm bg-gray-600/30 absolute inset-0 z-40"
+			@click="$emit('show')"
 		></div>
-		<slot />
+		<div class="relative z-50">
+			<slot />
+		</div>
 	</div>
 </template>
 <script setup lang="ts">
-const props = defineProps<{
-	changeBackdrop: () => void;
+defineProps<{
 	active: boolean;
 }>();
-const { active } = toRefs(props);
 </script>

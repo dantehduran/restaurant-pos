@@ -2,7 +2,10 @@
 	<div class="flex">
 		<div class="flex flex-col gap-6 p-4 flex-1">
 			<header>
-				<h1 class="text-3xl font-semibold leading-loose text-white">
+				<h1
+					class="text-3xl font-semibold leading-loose text-white"
+					@click="backdropStatus = true"
+				>
 					Dashboard
 				</h1>
 				<div class="text-gray-300">Friday 5 Aug, 2022</div>
@@ -16,3 +19,6 @@
 		</aside>
 	</div>
 </template>
+<script setup lang="ts">
+const backdropStatus = ref(false);
+</script>
