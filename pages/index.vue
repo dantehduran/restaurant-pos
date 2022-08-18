@@ -20,6 +20,10 @@
 				</div>
 			</div>
 			<Categories />
+			<h3 class="text-white text-lg">Choose Dishes</h3>
+			<div class="grid grid-cols-4 gap-3">
+				<HomeDishCard />
+			</div>
 		</div>
 		<aside class="bg-gray-900 w-1/3"></aside>
 	</div>
