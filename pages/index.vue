@@ -23,9 +23,19 @@
 			<h3 class="text-white text-lg">Choose Dishes</h3>
 			<div class="grid grid-cols-4 gap-3">
 				<HomeDishCard />
+				<HomeDishCard />
+				<HomeDishCard />
+				<HomeDishCard />
+				<HomeDishCard />
+				<HomeDishCard />
+				<HomeDishCard />
+				<HomeDishCard />
+				<HomeDishCard />
 			</div>
 		</div>
-		<aside class="bg-gray-900 w-1/3"></aside>
+		<aside class="w-1/3 relative">
+			<HomeCart />
+		</aside>
 	</div>
 </template>
 <script setup lang="ts"></script>

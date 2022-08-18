@@ -1,5 +1,5 @@
 <template>
-	<div
+	<button
 		class="relative max-w-[192px] min-h-[260px] rounded-lg flex flex-col justify-center items-center"
 	>
 		<div class="absolute top-0 h-32 w-32 rounded-full bg-slate-700"></div>
@@ -12,5 +12,5 @@
 			<span class="text-sm text-gray-400">$2.29 </span>
 			<span class="text-sm text-gray-400">20 Bowls</span>
 		</div>
-	</div>
+	</button>
 </template>
