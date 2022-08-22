@@ -36,7 +36,7 @@
 <script setup lang="ts">
 const Menus = [
 	{ name: 'index', icon: 'cil:home', path: '/' },
-	{ name: 'discounts', icon: 'tabler:discount-2', path: '/discounts' },
+	{ name: 'orders', icon: 'tabler:discount-2', path: '/orders' },
 	{
 		name: 'dashboard',
 		icon: 'ant-design:pie-chart-outlined',

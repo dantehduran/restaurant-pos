@@ -25,12 +25,12 @@
 				<HomeDishCard />
 				<HomeDishCard />
 				<HomeDishCard />
-				<!-- <HomeDishCard />
 				<HomeDishCard />
 				<HomeDishCard />
 				<HomeDishCard />
 				<HomeDishCard />
-				<HomeDishCard /> -->
+				<HomeDishCard />
+				<HomeDishCard />
 			</div>
 		</div>
 		<aside class="w-1/3 relative">
