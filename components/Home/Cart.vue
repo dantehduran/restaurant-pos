@@ -1,7 +1,7 @@
 <template>
-	<div class="sticky bg-gray-900 rounded-l-lg top-0 min-h-screen">
-		<div class="flex flex-col gap-y-4 px-4 max-h-screen min-h-screen">
-			<div class="bg-gray-900 flex flex-col gap-y-4 pt-6">
+	<div class="bg-gray-900 rounded-l-lg max-h-screen sticky top-0">
+		<div class="flex flex-col gap-y-4 px-4 min-h-screen">
+			<div class="bg-gray-900 flex flex-col gap-y-4 mt-6">
 				<h3 class="text-white text-xl">Table 4</h3>
 				<div class="flex gap-x-2">
 					<button
