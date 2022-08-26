@@ -42,6 +42,7 @@ const Menus = [
 		icon: 'ant-design:pie-chart-outlined',
 		path: '/dashboard',
 	},
+	{ name: 'dishes', icon: 'fluent:production-20-regular', path: '/dishes' },
 	{ name: 'settings', icon: 'ep:setting', path: '/settings' },
 ];
 const route = useRoute();
