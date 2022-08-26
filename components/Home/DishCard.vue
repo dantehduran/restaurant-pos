@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="relative w-full rounded-lg flex flex-col items-start py-4 px-6 gap-1.5"
+		class="relative w-full rounded-lg flex flex-col items-start py-4 px-6 gap-1.5 transition-colors ease-in-out duration-300"
 		:class="qty > 0 ? 'bg-primary' : 'bg-gray-900'"
 	>
 		<div class="absolute w-2 h-full bg-primary left-0 top-0 rounded-l-lg"></div>
