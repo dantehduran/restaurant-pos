@@ -8,14 +8,11 @@
 				<div class="text-gray-300">Friday 5 Aug, 2022</div>
 			</header>
 			<hr class="border-gray-700" />
-			<StatsCard />
-			<OrderReport />
+			<DashboardStatsCard />
+			<DashboardOrderReport />
 		</div>
 		<aside class="flex flex-col gap-y-6 pt-6 pr-6 w-96">
-			<MostOrdered />
+			<DashboardMostOrdered />
 		</aside>
 	</div>
 </template>
-<script setup lang="ts">
-const backdropStatus = ref(false);
-</script>
