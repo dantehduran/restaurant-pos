@@ -43,20 +43,12 @@
 	</div>
 </template>
 <script setup lang="ts">
+const store = useDishesStore();
+const { dishes } = storeToRefs(store);
 const backdropStatus = ref(false);
 const activeCategory = ref('hot dishes');
-const dishes = reactive([
-	{ name: 'plate 1', price: '23.5', category: 'hot dishes' },
-	{ name: 'plate 2', price: '23.5', category: 'dessert' },
-	{ name: 'plate 3', price: '23.5', category: 'grill' },
-	{ name: 'plate 4', price: '23.5', category: 'soup' },
-	{ name: 'plate 5', price: '23.5', category: 'cold dishes' },
-	{ name: 'plate 6', price: '23.5', category: 'appetizer' },
-	{ name: 'plate 7', price: '23.5', category: 'hot dishes' },
-	{ name: 'plate 8', price: '23.5', category: 'hot dishes' },
-	{ name: 'plate 9', price: '23.5', category: 'hot dishes' },
-]);
+
 const filteredDishes = computed(() => {
-	return dishes.filter((dish) => dish.category === activeCategory.value);
+	return dishes.value.filter((dish) => dish.category === activeCategory.value);
 });
 </script>
