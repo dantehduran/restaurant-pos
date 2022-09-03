@@ -1,10 +1,8 @@
 <template>
 	<div class="w-full rounded-lg flex flex-col items-start bg-gray-900">
 		<div class="flex flex-col items-start py-4 px-6 gap-1.5">
-			<span class="text-white capitalize font-medium"
-				>spicy seasoned seafood noodles</span
-			>
-			<span class="text-sm text-gray-200">$2.29 </span>
+			<span class="text-white capitalize font-medium">{{ name }}</span>
+			<span class="text-sm text-gray-200">${{ price }}</span>
 		</div>
 
 		<button
@@ -15,3 +13,6 @@
 		</button>
 	</div>
 </template>
+<script setup lang="ts">
+defineProps<{ name: String; price: String }>();
+</script>

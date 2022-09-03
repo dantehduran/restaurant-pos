@@ -24,12 +24,13 @@
 				</button>
 			</div>
 		</div>
-		<Categories />
+		<Categories @change="(newCategory) => (activeCategory = newCategory)" />
 		<div class="grid grid-cols-4 md:grid-cols-6 gap-2">
-			<DishCard />
-			<DishCard />
-			<DishCard />
-			<DishCard />
+			<DishCard
+				v-for="dish in filteredDishes"
+				:name="dish.name"
+				:price="dish.price"
+			/>
 		</div>
 		<Backdrop
 			:active.sync="backdropStatus"
@@ -43,4 +44,19 @@
 </template>
 <script setup lang="ts">
 const backdropStatus = ref(false);
+const activeCategory = ref('hot dishes');
+const dishes = reactive([
+	{ name: 'plate 1', price: '23.5', category: 'hot dishes' },
+	{ name: 'plate 2', price: '23.5', category: 'dessert' },
+	{ name: 'plate 3', price: '23.5', category: 'grill' },
+	{ name: 'plate 4', price: '23.5', category: 'soup' },
+	{ name: 'plate 5', price: '23.5', category: 'cold dishes' },
+	{ name: 'plate 6', price: '23.5', category: 'appetizer' },
+	{ name: 'plate 7', price: '23.5', category: 'hot dishes' },
+	{ name: 'plate 8', price: '23.5', category: 'hot dishes' },
+	{ name: 'plate 9', price: '23.5', category: 'hot dishes' },
+]);
+const filteredDishes = computed(() => {
+	return dishes.filter((dish) => dish.category === activeCategory.value);
+});
 </script>
