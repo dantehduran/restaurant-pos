@@ -1,5 +1,3 @@
-import { defineStore } from 'pinia';
-
 export const useDishesStore = defineStore('dishes', () => {
 	const dishes = ref([
 		{ id: '1', name: 'plate 1', price: '23.5', category: 'hot dishes' },

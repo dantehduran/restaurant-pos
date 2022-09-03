@@ -19,12 +19,6 @@
 </template>
 <script setup lang="ts">
 const active = ref('hot dishes');
-const categories = [
-	'hot dishes',
-	'cold dishes',
-	'soup',
-	'grill',
-	'appetizer',
-	'dessert',
-];
+const store = useCategoryStore();
+const { categories } = storeToRefs(store);
 </script>

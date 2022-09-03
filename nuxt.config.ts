@@ -4,6 +4,6 @@ import { defineNuxtConfig } from 'nuxt';
 export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/tailwindcss',
-		['@pinia/nuxt', { autoImports: ['storeToRefs'] }],
+		['@pinia/nuxt', { autoImports: ['storeToRefs', 'defineStore'] }],
 	],
 });
