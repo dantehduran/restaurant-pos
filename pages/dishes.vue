@@ -39,11 +39,7 @@
 		>
 			<div class="absolute top-0 right-0">
 				<div class="w-96 bg-gray-900 min-h-screen">
-					<div class="flex flex-col gap-y-4 p-4">
-						<h4 class="text-white text-lg">New Dish</h4>
-						<Input label="Name" />
-						<Input label="Price" />
-					</div>
+					<DishNewForm @complete="() => (backdropStatus = false)" />
 				</div>
 			</div>
 		</Backdrop>

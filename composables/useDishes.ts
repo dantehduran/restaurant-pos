@@ -10,8 +10,8 @@ export const useDishesStore = defineStore('dishes', () => {
 		{ id: '8', name: 'plate 8', price: '23.5', category: 'hot dishes' },
 		{ id: '9', name: 'plate 9', price: '23.5', category: 'hot dishes' },
 	]);
-	function newDish({ id, name, price, category }) {
-		dishes.value.push({ id, name, price, category });
+	function newDish({ name, price, category }) {
+		dishes.value.push({ id: name + price, name, price, category });
 	}
 	function editDish(id: String, newValues) {
 		dishes.value.find(
