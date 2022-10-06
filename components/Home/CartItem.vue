@@ -1,13 +1,10 @@
 <template>
 	<div class="w-full flex flex-col gap-y-2 p-2 bg-gray-800 rounded-lg">
 		<div class="flex gap-x-4 items-center justify-around">
-			<button class="p-3 border border-primary rounded-lg">
-				<Icon
-					w="20"
-					h="20"
-					class="text-primary"
-					icon="fluent:delete-20-regular"
-				/>
+			<button
+				class="p-3 border border-primary rounded-lg hover:bg-primary hover:text-white text-primary hover:border-gray-600"
+			>
+				<Icon w="20" h="20" icon="fluent:delete-20-regular" />
 			</button>
 			<div class="w-48">
 				<p class="capitalize text-white text-sm truncate overflow-hidden">
@@ -20,3 +17,11 @@
 		</div>
 	</div>
 </template>
+<!-- <script setup lang='ts'>
+defineProps<{
+	id:string;
+	name:string;
+	price:number
+	qty:number
+}>()
+</script> -->

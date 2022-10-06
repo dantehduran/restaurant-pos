@@ -19,17 +19,14 @@
 					/>
 				</div>
 			</div>
-			<Categories />
+			<Categories @change="(newCategory) => (activeCategory = newCategory)" />
 			<div class="grid grid-cols-4 gap-3">
-				<HomeDishCard />
-				<HomeDishCard />
-				<HomeDishCard />
-				<HomeDishCard />
-				<HomeDishCard />
-				<HomeDishCard />
-				<HomeDishCard />
-				<HomeDishCard />
-				<HomeDishCard />
+				<HomeDishCard
+					v-for="dish in filteredDishes"
+					:name="dish.name"
+					:price="dish.price"
+					:id="dish.id"
+				/>
 			</div>
 		</div>
 		<aside class="w-1/3 relative">
@@ -37,4 +34,11 @@
 		</aside>
 	</div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const activeCategory = ref('hot dishes');
+const dishesStore = useDishesStore();
+const { dishes } = storeToRefs(dishesStore);
+const filteredDishes = computed(() => {
+	return dishes.value.filter((dish) => dish.category === activeCategory.value);
+});
+</script>

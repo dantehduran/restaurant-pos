@@ -21,13 +21,7 @@
 			<div
 				class="flex flex-col max-h-[50%] gap-y-2 overflow-y-auto scrollbar-hide"
 			>
-				<HomeCartItem />
-				<HomeCartItem />
-				<HomeCartItem />
-				<!-- <HomeCartItem />
-				<HomeCartItem />
-				<HomeCartItem />
-				<HomeCartItem /> -->
+				<HomeCartItem v-for="item in items" />
 			</div>
 			<div class="bg-gray-900 flex flex-col gap-y-4 py-4 mt-auto">
 				<div class="flex justify-between items-center">
@@ -50,4 +44,6 @@
 <script setup lang="ts">
 const active = ref('dine in');
 const options = ['dine in', 'to go', 'delivery'];
+const cartStore = useCartStore();
+const { items } = storeToRefs(cartStore);
 </script>

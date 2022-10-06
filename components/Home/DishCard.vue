@@ -4,10 +4,8 @@
 		:class="qty > 0 ? 'bg-primary' : 'bg-gray-900'"
 	>
 		<div class="absolute w-2 h-full bg-primary left-0 top-0 rounded-l-lg"></div>
-		<span class="text-white capitalize font-medium"
-			>spicy seasoned seafood noodles</span
-		>
-		<span class="text-sm text-gray-200">$2.29 </span>
+		<span class="text-white capitalize font-medium">{{ name }}</span>
+		<span class="text-sm text-gray-200">${{ price }} </span>
 
 		<div class="flex justify-end w-full items-center gap-x-2">
 			<button
@@ -30,5 +28,10 @@
 	</div>
 </template>
 <script setup lang="ts">
+defineProps<{
+	name: string;
+	id: string;
+	price: number;
+}>();
 const qty = ref(0);
 </script>
