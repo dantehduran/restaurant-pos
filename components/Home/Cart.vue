@@ -21,7 +21,14 @@
 			<div
 				class="flex flex-col max-h-[50%] gap-y-2 overflow-y-auto scrollbar-hide"
 			>
-				<HomeCartItem v-for="item in items" />
+				<HomeCartItem
+					v-for="item in items"
+					:name="item.name"
+					:price="item.price"
+					:qty="item.qty"
+					:id="item.id"
+					:key="item.id"
+				/>
 			</div>
 			<div class="bg-gray-900 flex flex-col gap-y-4 py-4 mt-auto">
 				<div class="flex justify-between items-center">

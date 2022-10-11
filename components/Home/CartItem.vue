@@ -3,25 +3,28 @@
 		<div class="flex gap-x-4 items-center justify-around">
 			<button
 				class="p-3 border border-primary rounded-lg hover:bg-primary hover:text-white text-primary hover:border-gray-600"
+				@click="removeItem(id)"
 			>
 				<Icon w="20" h="20" icon="fluent:delete-20-regular" />
 			</button>
 			<div class="w-48">
 				<p class="capitalize text-white text-sm truncate overflow-hidden">
-					spicy seasoned sea food food food
+					{{ name }}
 				</p>
-				<p class="text-gray-600 text-sm">$2,29</p>
+				<p class="text-gray-600 text-sm">${{ price }}</p>
 			</div>
-			<span class="text-gray-300 text-sm text-center">x2</span>
-			<span class="text-white">$42,58</span>
+			<span class="text-gray-300 text-sm text-center">x{{ qty }}</span>
+			<span class="text-white">${{ price * qty }}</span>
 		</div>
 	</div>
 </template>
-<!-- <script setup lang='ts'>
+<script setup lang="ts">
 defineProps<{
-	id:string;
-	name:string;
-	price:number
-	qty:number
-}>()
-</script> -->
+	id: string;
+	name: string;
+	price: number;
+	qty: number;
+}>();
+const store = useCartStore();
+const { removeItem } = store;
+</script>

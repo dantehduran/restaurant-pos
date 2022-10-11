@@ -1,5 +1,5 @@
 interface CartItem {
-	namne: string;
+	name: string;
 	price: number;
 	qty: number;
 	id: string;
@@ -26,6 +26,7 @@ export const useCartStore = defineStore('cart', () => {
 			(item) => item.id === id && item.qty > 0 && (item.qty--, true)
 		);
 	}
+
 	return {
 		items,
 		subtotal,
