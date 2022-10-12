@@ -32,13 +32,18 @@
 			</div>
 			<div class="bg-gray-900 flex flex-col gap-y-4 py-4 mt-auto">
 				<div class="flex justify-between items-center">
-					<span class="text-sm text-gray-600">Tax</span>
-					<span class="text-sm text-white text-right">$ 0</span>
+					<span class="text-sm text-gray-600">Sub total</span>
+					<span class="text-sm text-white text-right"
+						>$ {{ subtotal.toFixed(2) }}</span
+					>
 				</div>
 				<div class="flex justify-between items-center">
-					<span class="text-sm text-gray-600">Sub total</span>
-					<span class="text-sm text-white text-right">$ 21,03</span>
+					<span class="text-sm text-gray-600">Tax</span>
+					<span class="text-sm text-white text-right"
+						>$ {{ tax.toFixed(2) }}</span
+					>
 				</div>
+
 				<button
 					class="w-full text-center py-3 bg-primary text-white rounded-lg shadow-primary"
 				>
@@ -52,5 +57,5 @@
 const active = ref('dine in');
 const options = ['dine in', 'to go', 'delivery'];
 const cartStore = useCartStore();
-const { items } = storeToRefs(cartStore);
+const { items, subtotal, tax } = storeToRefs(cartStore);
 </script>
