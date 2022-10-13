@@ -2,7 +2,23 @@
 	<div class="bg-gray-900 rounded-l-lg max-h-screen sticky top-0">
 		<div class="flex flex-col gap-y-4 px-4 min-h-screen max-h-screen">
 			<div class="bg-gray-900 flex flex-col gap-y-4 mt-6">
-				<h3 class="text-white text-xl">Table 4</h3>
+				<div class="flex items-center gap-x-2">
+					<button
+						class="p-1 text-primary"
+						@click="table--"
+						:disabled="table === 0"
+					>
+						<Icon w="25" h="25" icon="akar-icons:triangle-left" />
+					</button>
+					<h3 class="text-white text-xl">Table {{ tables[table] }}</h3>
+					<button
+						class="p-1 text-primary"
+						@click="table++"
+						:disabled="table === tables.length - 1"
+					>
+						<Icon w="25" h="25" icon="akar-icons:triangle-right" />
+					</button>
+				</div>
 				<div class="flex gap-x-2">
 					<button
 						@click="active = option"
@@ -54,6 +70,8 @@
 	</div>
 </template>
 <script setup lang="ts">
+const table = ref(0);
+const tables = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 const active = ref('dine in');
 const options = ['dine in', 'to go', 'delivery'];
 const cartStore = useCartStore();
