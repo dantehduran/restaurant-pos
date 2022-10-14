@@ -2,6 +2,20 @@
 	<div class="bg-gray-900 rounded-l-lg max-h-screen sticky top-0">
 		<div class="flex flex-col gap-y-4 px-4 min-h-screen max-h-screen">
 			<div class="bg-gray-900 flex flex-col gap-y-4 mt-6">
+				<div class="flex gap-x-2">
+					<button
+						@click="active = option"
+						v-for="option in options"
+						class="py-2 px-3 rounded-lg text-sm capitalize font-semibold border border-gray-600"
+						:class="
+							active === option
+								? 'bg-primary text-white'
+								: 'text-primary bg-inherit'
+						"
+					>
+						{{ option }}
+					</button>
+				</div>
 				<div class="flex items-center gap-x-2">
 					<button
 						class="p-1 text-primary"
@@ -17,20 +31,6 @@
 						:disabled="table === tables.length - 1"
 					>
 						<Icon w="25" h="25" icon="akar-icons:triangle-right" />
-					</button>
-				</div>
-				<div class="flex gap-x-2">
-					<button
-						@click="active = option"
-						v-for="option in options"
-						class="py-2 px-3 rounded-lg text-sm capitalize font-semibold border border-gray-600"
-						:class="
-							active === option
-								? 'bg-primary text-white'
-								: 'text-primary bg-inherit'
-						"
-					>
-						{{ option }}
 					</button>
 				</div>
 			</div>
