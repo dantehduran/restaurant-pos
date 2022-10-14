@@ -4,8 +4,12 @@
 			<h1 class="text-3xl font-semibold leading-loose text-white">Orders</h1>
 		</header>
 		<hr class="border-gray-700" />
-		<div class="grid grid-cols-4">
-			<Order />
+		<div class="grid grid-cols-4 gap-4">
+			<Order v-for="order in orders" :key="order.to" v-bind="order" />
 		</div>
 	</div>
 </template>
+<script setup lang="ts">
+const orderStore = useOrderStore();
+const { orders } = storeToRefs(orderStore);
+</script>

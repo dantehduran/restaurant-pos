@@ -21,4 +21,5 @@ export const useOrderStore = defineStore('orders', () => {
 		const index = orders.value.findIndex((item) => item.to === id);
 		orders.value.splice(index, 1);
 	}
+	return { orders, addOrder, removeOrder };
 });

@@ -4,7 +4,7 @@
 			<div class="bg-gray-900 flex flex-col gap-y-4 mt-6">
 				<div class="flex gap-x-2">
 					<button
-						@click="active = option"
+						@click="active = option as Options"
 						v-for="option in options"
 						class="py-2 px-3 rounded-lg text-sm capitalize font-semibold border border-gray-600"
 						:class="
@@ -24,7 +24,7 @@
 					>
 						<Icon w="25" h="25" icon="akar-icons:triangle-left" />
 					</button>
-					<h3 class="text-white text-xl">Table {{ tables[table] }}</h3>
+					<h3 class="text-white text-xl">{{ tables[table] }}</h3>
 					<button
 						class="p-1 text-primary"
 						@click="table++"
@@ -62,6 +62,7 @@
 
 				<button
 					class="w-full text-center py-3 bg-primary text-white rounded-lg shadow-primary"
+					@click="handleSendOrder()"
 				>
 					Place Order
 				</button>
@@ -70,10 +71,33 @@
 	</div>
 </template>
 <script setup lang="ts">
+type Options = 'dine in' | 'to go' | 'delivery';
 const table = ref(0);
-const tables = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-const active = ref('dine in');
+const tables = [
+	'Table 1',
+	'Table 2',
+	'Table 3',
+	'Table 4',
+	'Table 5',
+	'Table 6',
+	'Table 7',
+	'Table 8',
+	'Table 9',
+	'Table 10',
+];
+const active = ref<Options>('dine in');
 const options = ['dine in', 'to go', 'delivery'];
 const cartStore = useCartStore();
-const { items, subtotal, tax } = storeToRefs(cartStore);
+const { items, subtotal, tax, total } = storeToRefs(cartStore);
+const orderStore = useOrderStore();
+const handleSendOrder = () => {
+	orderStore.addOrder({
+		to: tables[table.value],
+		dishes: items.value,
+		option: active.value,
+		subtotal: subtotal.value,
+		tax: tax.value,
+		total: total.value,
+	});
+};
 </script>
