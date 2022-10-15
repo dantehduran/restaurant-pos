@@ -93,7 +93,7 @@ const orderStore = useOrderStore();
 const handleSendOrder = () => {
 	orderStore.addOrder({
 		to: tables[table.value],
-		dishes: items.value,
+		dishes: items.value.map((item) => item),
 		option: active.value,
 		subtotal: subtotal.value,
 		tax: tax.value,
