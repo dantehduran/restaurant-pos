@@ -98,6 +98,7 @@ const handleSendOrder = () => {
 		subtotal: subtotal.value,
 		tax: tax.value,
 		total: total.value,
+		ready: false,
 	});
 };
 </script>

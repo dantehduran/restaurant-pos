@@ -11,6 +11,7 @@ interface Order {
 	subtotal: number;
 	tax: number;
 	total: number;
+	ready: boolean;
 }
 export const useOrderStore = defineStore('orders', () => {
 	const orders = ref<Order[]>([]);
@@ -21,5 +22,8 @@ export const useOrderStore = defineStore('orders', () => {
 		const index = orders.value.findIndex((item) => item.to === id);
 		orders.value.splice(index, 1);
 	}
-	return { orders, addOrder, removeOrder };
+	function readyToPay(id: string) {
+		orders.value.find((item) => item.to === id && ((item.ready = true), true));
+	}
+	return { orders, addOrder, removeOrder, readyToPay };
 });

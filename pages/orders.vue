@@ -4,8 +4,8 @@
 			<h1 class="text-3xl font-semibold leading-loose text-white">Orders</h1>
 		</header>
 		<hr class="border-gray-700" />
-		<div class="grid grid-cols-4 gap-4">
-			<div v-for="order in orders">
+		<div class="grid grid-flow-row-dense grid-cols-4 gap-4">
+			<div v-for="order in filteredOrders">
 				<Order :key="order.to" v-bind="order" />
 			</div>
 		</div>
@@ -14,4 +14,7 @@
 <script setup lang="ts">
 const orderStore = useOrderStore();
 const { orders } = storeToRefs(orderStore);
+const filteredOrders = computed(() =>
+	orders.value.filter((order) => order.ready === false)
+);
 </script>

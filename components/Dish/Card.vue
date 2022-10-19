@@ -14,5 +14,5 @@
 	</div>
 </template>
 <script setup lang="ts">
-defineProps<{ name: String; price: String }>();
+defineProps<{ name: String; price: number }>();
 </script>

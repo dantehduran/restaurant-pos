@@ -20,14 +20,16 @@
 		</div>
 		<div class="w-full flex gap-x-2">
 			<button
-				class="p-2 border border-orange-400 rounded-lg w-1/2 flex justify-center"
+				class="p-2 border border-orange-400 rounded-lg w-1/2 flex justify-center items-center"
 			>
 				<Icon w="15" h="15" class="text-orange-400" icon="ep:edit-pen" />
 			</button>
 			<button
-				class="p-2 border border-green-400 rounded-lg w-1/2 flex justify-center"
+				class="p-2 border border-green-400 rounded-lg w-1/2 flex justify-center items-center"
+				@click="readyToPay(to)"
 			>
-				<Icon w="15" h="15" class="text-green-400" icon="bi:check" />
+				<Icon w="15" h="15" class="text-green-400" icon="bx:dollar" />
+				<span class="text-green-400 text-sm">{{ total }}</span>
 			</button>
 		</div>
 	</div>
@@ -48,5 +50,5 @@ defineProps<{
 	total: number;
 }>();
 const orderStore = useOrderStore();
-const { removeOrder } = orderStore;
+const { removeOrder, readyToPay } = orderStore;
 </script>
