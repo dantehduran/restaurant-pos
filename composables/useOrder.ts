@@ -5,6 +5,7 @@ interface OrderItem {
 	id: string;
 }
 interface Order {
+	id: string;
 	to: string;
 	dishes: OrderItem[];
 	option: 'dine in' | 'to go' | 'delivery';
@@ -19,11 +20,11 @@ export const useOrderStore = defineStore('orders', () => {
 		orders.value.push(newOrder);
 	}
 	function removeOrder(id: string) {
-		const index = orders.value.findIndex((item) => item.to === id);
+		const index = orders.value.findIndex((item) => item.id === id);
 		orders.value.splice(index, 1);
 	}
 	function readyToPay(id: string) {
-		orders.value.find((item) => item.to === id && ((item.ready = true), true));
+		orders.value.find((item) => item.id === id && ((item.ready = true), true));
 	}
 	return { orders, addOrder, removeOrder, readyToPay };
 });

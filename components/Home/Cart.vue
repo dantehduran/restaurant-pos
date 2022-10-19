@@ -71,6 +71,7 @@
 	</div>
 </template>
 <script setup lang="ts">
+import { v4 as uuidv4 } from 'uuid';
 type Options = 'dine in' | 'to go' | 'delivery';
 const table = ref(0);
 const tables = [
@@ -99,6 +100,7 @@ const handleSendOrder = () => {
 		tax: tax.value,
 		total: total.value,
 		ready: false,
+		id: uuidv4(),
 	});
 };
 </script>

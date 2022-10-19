@@ -12,6 +12,7 @@
 		"nuxt": "3.0.0-rc.8"
 	},
 	"dependencies": {
-		"@pinia/nuxt": "^0.4.1"
+		"@pinia/nuxt": "^0.4.1",
+		"uuid": "^9.0.0"
 	}
 }

@@ -26,7 +26,7 @@
 			</button>
 			<button
 				class="p-2 border border-green-400 rounded-lg w-1/2 flex justify-center items-center"
-				@click="readyToPay(to)"
+				@click="readyToPay(id)"
 			>
 				<Icon w="15" h="15" class="text-green-400" icon="bx:dollar" />
 				<span class="text-green-400 text-sm">{{ total }}</span>
@@ -48,6 +48,7 @@ defineProps<{
 	subtotal: number;
 	tax: number;
 	total: number;
+	id: string;
 }>();
 const orderStore = useOrderStore();
 const { removeOrder, readyToPay } = orderStore;
