@@ -5,7 +5,9 @@
 		</header>
 		<hr class="border-gray-700" />
 		<div class="grid grid-cols-4 gap-4">
-			<Order v-for="order in orders" :key="order.to" v-bind="order" />
+			<div v-for="order in orders">
+				<Order :key="order.to" v-bind="order" />
+			</div>
 		</div>
 	</div>
 </template>
