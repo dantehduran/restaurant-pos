@@ -4,7 +4,8 @@
 			<h1 class="text-3xl font-semibold leading-loose text-white">Orders</h1>
 		</header>
 		<hr class="border-gray-700" />
-		<div class="grid grid-flow-row-dense grid-cols-4 gap-4">
+		<!-- <div class="columns-3 gap-4 [&>*]:break-inside-avoid-column [&>*]:mb-4"> -->
+		<div class="grid grid-cols-3 gap-4">
 			<div v-for="order in filteredOrders">
 				<Order :key="order.to" v-bind="order" />
 			</div>
