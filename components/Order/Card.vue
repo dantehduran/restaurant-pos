@@ -4,7 +4,7 @@
 			<h3 class="text-white text-lg font-semibold">{{ to }}</h3>
 			<button
 				class="p-2 border border-red-400 rounded-lg"
-				@click="removeOrder(to)"
+				@click="removeOrder(id)"
 			>
 				<Icon w="15" h="15" class="text-red-400" icon="ci:close-big" />
 			</button>
