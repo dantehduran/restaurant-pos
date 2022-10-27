@@ -10,7 +10,7 @@
 			/>
 			<button
 				class="p-2 text-white bg-primary rounded-lg shadow-primary"
-				@click="store.addCategory(newCategory)"
+				@click="store.addCategory(newCategory.toLowerCase())"
 			>
 				<Icon icon="akar-icons:plus" w="26" h="26" />
 			</button>
@@ -19,11 +19,14 @@
 			<li
 				v-for="cat in categories"
 				:key="cat"
-				class="text-white text-lg py-2 border-b border-gray-700"
+				class="text-white py-2 border-b border-gray-700"
 			>
 				<div class="flex justify-between items-center">
-					<p>{{ cat }}</p>
-					<button class="text-red-500" @click="store.removeCategory(cat)">
+					<p class="capitalize">{{ cat }}</p>
+					<button
+						class="text-red-500"
+						@click="store.removeCategory(cat.toLowerCase())"
+					>
 						<Icon icon="bx:x" h="20" w="20" />
 					</button>
 				</div>
