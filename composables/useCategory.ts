@@ -7,7 +7,7 @@ export const useCategoryStore = defineStore('categories', () => {
 		'appetizer',
 		'dessert',
 	]);
-	function newCategory(newCategory: string) {
+	function addCategory(newCategory: string) {
 		categories.value.push(newCategory);
 	}
 	function editCategory(newValue: string) {
@@ -15,5 +15,5 @@ export const useCategoryStore = defineStore('categories', () => {
 			(category) => category === newValue && ((category = newValue), true)
 		);
 	}
-	return { categories, newCategory, editCategory };
+	return { categories, addCategory, editCategory };
 });

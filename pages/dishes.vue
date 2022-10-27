@@ -6,6 +6,7 @@
 			</h2>
 			<div class="flex gap-x-4">
 				<button
+					@click="categoriesBackdrop = true"
 					class="flex py-3 px-4 rounded-lg border border-gray-700 gap-x-2.5"
 				>
 					<Icon
@@ -17,7 +18,7 @@
 					<span class="text-sm text-white">Manage Categories</span>
 				</button>
 				<button
-					@click="backdropStatus = true"
+					@click="newDishBackdrop = true"
 					class="flex w-40 items-center justify-center py-3 px-4 rounded-lg bg-primary shadow-primary text-white text-sm"
 				>
 					New Dish
@@ -34,12 +35,22 @@
 			/>
 		</div>
 		<Backdrop
-			:active.sync="backdropStatus"
-			@show="() => (backdropStatus = false)"
+			:active.sync="newDishBackdrop"
+			@show="() => (newDishBackdrop = false)"
 		>
 			<div class="absolute top-0 right-0">
 				<div class="w-96 bg-gray-900 min-h-screen">
-					<DishNewForm @complete="() => (backdropStatus = false)" />
+					<DishNewForm @complete="() => (newDishBackdrop = false)" />
+				</div>
+			</div>
+		</Backdrop>
+		<Backdrop
+			:active.sync="categoriesBackdrop"
+			@show="() => (categoriesBackdrop = false)"
+		>
+			<div class="absolute top-0 right-0">
+				<div class="w-96 bg-gray-900 min-h-screen">
+					<ManageCategories @complete="() => (categoriesBackdrop = false)" />
 				</div>
 			</div>
 		</Backdrop>
@@ -48,7 +59,8 @@
 <script setup lang="ts">
 const store = useDishesStore();
 const { dishes } = storeToRefs(store);
-const backdropStatus = ref(false);
+const newDishBackdrop = ref(false);
+const categoriesBackdrop = ref(false);
 const activeCategory = ref('hot dishes');
 
 const filteredDishes = computed(() => {
