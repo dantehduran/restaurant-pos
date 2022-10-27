@@ -8,12 +8,18 @@ export const useCategoryStore = defineStore('categories', () => {
 		'dessert',
 	]);
 	function addCategory(newCategory: string) {
+		if (categories.value.includes(newCategory)) return;
 		categories.value.push(newCategory);
 	}
 	function editCategory(newValue: string) {
+		if (categories.value.includes(newValue)) return;
 		categories.value.find(
 			(category) => category === newValue && ((category = newValue), true)
 		);
 	}
-	return { categories, addCategory, editCategory };
+	function removeCategory(category: string) {
+		const index = categories.value.findIndex((cat) => cat === category);
+		categories.value.splice(index, 1);
+	}
+	return { categories, addCategory, editCategory, removeCategory };
 });
