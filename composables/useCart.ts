@@ -4,31 +4,47 @@ interface CartItem {
 	qty: number;
 	id: string;
 }
+interface Cart {
+	items: CartItem[];
+	to: string;
+	option: 'dine in' | 'delivery' | 'to go';
+}
 export const useCartStore = defineStore('cart', () => {
-	const items = ref<CartItem[]>([]);
+	const carts = ref<Cart[]>([]);
+	const selectedCart = ref('');
+	const indexCart = computed(() =>
+		carts.value.findIndex((cart) => cart.to === selectedCart.value)
+	);
+	// const items = ref<CartItem[]>([]);
 	const subtotal = computed(() =>
-		items.value.reduce((acc, item) => acc + item.price * item.qty, 0)
+		carts.value[indexCart.value].items.reduce(
+			(acc, item) => acc + item.price * item.qty,
+			0
+		)
 	);
 	const tax = computed(() => subtotal.value * 0.18);
 	const total = computed(() => subtotal.value + tax.value);
 	function addItem(newItem: CartItem) {
-		items.value.push(newItem);
+		carts.value[indexCart.value].items.push(newItem);
 	}
 	function removeItem(id: string) {
-		const index = items.value.findIndex((item) => item.id === id);
-		items.value.splice(index, 1);
+		const index = carts.value[indexCart.value].items.findIndex(
+			(item) => item.id === id
+		);
+		carts.value[indexCart.value].items.splice(index, 1);
 	}
 	function plusOneQty(id: string) {
-		items.value.find((item) => item.id === id && (item.qty++, true));
+		carts.value[indexCart.value].items.find(
+			(item) => item.id === id && (item.qty++, true)
+		);
 	}
 	function minusOneQty(id: string) {
-		items.value.find(
+		carts.value[indexCart.value].items.find(
 			(item) => item.id === id && item.qty > 0 && (item.qty--, true)
 		);
 	}
 
 	return {
-		items,
 		subtotal,
 		tax,
 		total,
