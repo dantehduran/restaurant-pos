@@ -1,19 +1,3 @@
-interface OrderItem {
-	name: string;
-	price: number;
-	qty: number;
-	id: string;
-}
-interface Order {
-	id: string;
-	to: string;
-	dishes: OrderItem[];
-	option: 'dine in' | 'to go' | 'delivery';
-	subtotal: number;
-	tax: number;
-	total: number;
-	ready: boolean;
-}
 export const useOrderStore = defineStore('orders', () => {
 	const orders = ref<Order[]>([]);
 	function addOrder(newOrder: Order) {

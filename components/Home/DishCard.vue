@@ -34,11 +34,11 @@ const props = defineProps<{
 }>();
 const store = useCartStore();
 const { addItem, removeItem, plusOneQty, minusOneQty } = store;
-const { items } = storeToRefs(store);
+const { cart } = storeToRefs(store);
 
 const qty = computed(() => {
-	const index = items.value.findIndex((i) => i.id === props.id);
-	return index === -1 ? 0 : items.value[index].qty;
+	const index = cart.value.dishes.findIndex((i) => i.id === props.id);
+	return index === -1 ? 0 : cart.value.dishes[index].qty;
 });
 
 const handlePlusButtom = () => {

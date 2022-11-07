@@ -38,7 +38,7 @@
 				class="flex flex-col max-h-[50%] gap-y-2 overflow-y-auto scrollbar-hide"
 			>
 				<HomeCartItem
-					v-for="item in items"
+					v-for="item in cart.dishes"
 					:name="item.name"
 					:price="item.price"
 					:qty="item.qty"
@@ -72,7 +72,7 @@
 </template>
 <script setup lang="ts">
 import { v4 as uuidv4 } from 'uuid';
-type Options = 'dine in' | 'to go' | 'delivery';
+
 const table = ref(0);
 const tables = [
 	'Table 1',
@@ -89,12 +89,12 @@ const tables = [
 const active = ref<Options>('dine in');
 const options = ['dine in', 'to go', 'delivery'];
 const cartStore = useCartStore();
-const { items, subtotal, tax, total } = storeToRefs(cartStore);
+const { cart, subtotal, tax, total } = storeToRefs(cartStore);
 const orderStore = useOrderStore();
 const handleSendOrder = () => {
 	orderStore.addOrder({
 		to: tables[table.value],
-		dishes: items.value.map((item) => item),
+		dishes: cart.value.dishes.map((item) => item),
 		option: active.value,
 		subtotal: subtotal.value,
 		tax: tax.value,
