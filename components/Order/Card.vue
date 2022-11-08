@@ -35,16 +35,10 @@
 	</div>
 </template>
 <script setup lang="ts">
-interface OrderItem {
-	name: string;
-	price: number;
-	qty: number;
-	id: string;
-}
 defineProps<{
 	to: string;
-	dishes: OrderItem[];
-	option: 'dine in' | 'to go' | 'delivery';
+	dishes: CartItem[];
+	option: Options;
 	subtotal: number;
 	tax: number;
 	total: number;
