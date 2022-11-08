@@ -19,16 +19,16 @@
 				<div class="flex items-center gap-x-2">
 					<button
 						class="p-1 text-primary"
-						@click="table--"
-						:disabled="table === 0"
+						@click="indexCart--"
+						:disabled="indexCart === 0"
 					>
 						<Icon w="25" h="25" icon="akar-icons:triangle-left" />
 					</button>
-					<h3 class="text-white text-xl">{{ tables[table] }}</h3>
+					<h3 class="text-white text-xl">{{ cart.to }}</h3>
 					<button
 						class="p-1 text-primary"
-						@click="table++"
-						:disabled="table === tables.length - 1"
+						@click="indexCart++"
+						:disabled="indexCart === maxCarts - 1"
 					>
 						<Icon w="25" h="25" icon="akar-icons:triangle-right" />
 					</button>
@@ -73,27 +73,15 @@
 <script setup lang="ts">
 import { v4 as uuidv4 } from 'uuid';
 
-const table = ref(0);
-const tables = [
-	'Table 1',
-	'Table 2',
-	'Table 3',
-	'Table 4',
-	'Table 5',
-	'Table 6',
-	'Table 7',
-	'Table 8',
-	'Table 9',
-	'Table 10',
-];
 const active = ref<Options>('dine in');
 const options = ['dine in', 'to go', 'delivery'];
 const cartStore = useCartStore();
-const { cart, subtotal, tax, total } = storeToRefs(cartStore);
+const { indexCart, cart, subtotal, tax, total, maxCarts } =
+	storeToRefs(cartStore);
 const orderStore = useOrderStore();
 const handleSendOrder = () => {
 	orderStore.addOrder({
-		to: tables[table.value],
+		to: cart.value.to,
 		dishes: cart.value.dishes.map((item) => item),
 		option: active.value,
 		subtotal: subtotal.value,

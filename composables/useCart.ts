@@ -10,29 +10,26 @@ const tables: Cart[] = [
 		dishes: [],
 	},
 	{
-		to: 'table 2',
+		to: 'table 3',
 		option: 'dine in',
 		dishes: [],
 	},
 	{
-		to: 'table 2',
+		to: 'table 4',
 		option: 'dine in',
 		dishes: [],
 	},
 	{
-		to: 'table 2',
+		to: 'table 5',
 		option: 'dine in',
 		dishes: [],
 	},
 ];
 export const useCartStore = defineStore('cart', () => {
 	const carts = ref<Cart[]>(tables);
-	const selectedCart = ref('table 1');
-	const indexCart = computed(() =>
-		carts.value.findIndex((cart) => cart.to === selectedCart.value)
-	);
+	const maxCarts = computed(() => carts.value.length);
+	const indexCart = ref(0);
 	const cart = computed(() => carts.value[indexCart.value]);
-	// const dishes = ref<CartItem[]>([]);
 	const subtotal = computed(() =>
 		carts.value[indexCart.value].dishes.reduce(
 			(acc, item) => acc + item.price * item.qty,
@@ -66,6 +63,8 @@ export const useCartStore = defineStore('cart', () => {
 		tax,
 		total,
 		cart,
+		indexCart,
+		maxCarts,
 		addItem,
 		removeItem,
 		plusOneQty,
